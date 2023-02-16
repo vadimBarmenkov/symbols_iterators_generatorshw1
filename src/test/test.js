@@ -1,7 +1,7 @@
 import {Character} from "../js/Character";
 import {Team} from "../js/Team";
 
-test('test 2', () => {
+test('test 1', () => {
     const team = new Team();
     const testCharacters = [
         new Character('Лучник', 'Bowman', 50, 1, 50, 10),

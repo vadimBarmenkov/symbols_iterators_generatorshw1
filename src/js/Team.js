@@ -1,14 +1,30 @@
-import {Character} from "./Character";
-
 export class Team {
     constructor() {
         this.team = {};
-        this.team.length = 0;
-        this.team[Symbol.iterator] = [][Symbol.iterator];
+        this.teamLength = 0;
+        this.team[Symbol.iterator] = function (){
+            let current = 0;
+            let last = this.teamLength;
+
+            return{
+                next(){
+                    if (current <= last) {
+                        return {
+                            done: false,
+                            value: current++
+                        };
+                    } else {
+                        return {
+                            done: true
+                        };
+                    }
+                }
+            }
+        }
     }
 
     addCharacterToTeam(character){
-        this.team[this.team.length] = (character);
-        this.team.length++;
+        this.team[this.teamLength] = (character);
+        this.teamLength++;
     }
 }
